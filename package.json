@@ -12,7 +12,9 @@
     "scripts": {
         "server": "node esmbuild server ./src 8000",
         "build": "node esmbuild build ./src dist; cp src/_headers dist",
-        "release": "npm run build; mkdir -p release; cp src/_headers dist; cp -Rf dist release/$npm_package_name@$npm_package_version"
+        "build-latest": "rm -R release/latest; cp -Rf dist release/latest",
+        "build-release": "rm -R release/$npm_package_name@$npm_package_version; cp -Rf dist release/$npm_package_name@$npm_package_version",
+        "release": "npm run build; mkdir -p release; npm run build-latest; npm run build-release"
     },
     "type": "module",
     "author": "alexssh",
