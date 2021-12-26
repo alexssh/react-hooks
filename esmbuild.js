@@ -8,7 +8,7 @@ const defaultSource = join(process.cwd(), "src")
 const defaultOutdir = join(process.cwd(), "dist")
 
 async function getOptions(path) {
-    const entryPoints = await globby([`${path}/*.(t|j)s*`])
+    const entryPoints = await globby([`${path}/*.tsx`])
 
     return {
         entryPoints,
