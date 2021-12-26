@@ -10,8 +10,6 @@ const defaultOutdir = join(process.cwd(), "dist")
 async function getOptions(path) {
     const entryPoints = await globby([`${path}/*.(t|j)s*`])
 
-    console.log(entryPoints)
-
     return {
         entryPoints,
         minify: true,
