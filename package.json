@@ -1,0 +1,20 @@
+{
+    "name": "react-hooks",
+    "version": "0.0.1",
+    "description": "",
+    "main": "dist/index.js",
+    "devDependencies": {
+        "esbuild": "^0.14.8",
+        "globby": "^12.0.2",
+        "react": "^17.0.2",
+        "typescript": "^4.5.4"
+    },
+    "scripts": {
+        "server": "node esmbuild server ./src 8000",
+        "build": "node esmbuild build ./src dist; cp src/_headers dist",
+        "release": "npm version; npm run build; mkdir -p release; cp src/_headers dist; cp -Rf dist /release/$npm_package_name@$npm_package_version"
+    },
+    "type": "module",
+    "author": "alexssh",
+    "license": "MIT"
+}
