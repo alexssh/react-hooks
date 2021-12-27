@@ -121,6 +121,24 @@ export default function Component() {
 }
 ```
 
+## useKeyPress
+
+This hook makes it easy to detect when the user is pressing a specific key on their keyboard.
+
+```js
+import { useKeyPress } from "https://alexssh.github.io/react-hooks/release/latest/index.js"
+
+export default function Component() {
+    const happyPress = useKeyPress("h");
+
+    return (
+        <div>
+            {happyPress && "😊"}
+        </div>
+    )
+}
+```
+
 ## useLocalStorage
 
 Persist the state with local storage so that it remains after a page refresh. This hook is used in the same way as useState except that you must pass the storage key in the 1st parameter. If the window object is not present, useLocalStorage() will return the default value.
@@ -139,6 +157,28 @@ export default function Component() {
       <button onClick={setSomeProperty}>
         {`The current property value is ${someProperty ? `true` : `false`}`}
       </button>
+    )
+}
+```
+
+## usePrevious
+
+It uses the useRef hook internally for storing the previous value.
+
+```js
+import { usePrevious } from "https://alexssh.github.io/react-hooks/release/latest/index.js"
+
+export default function Component() {
+    const [count, setCount] = useState(0)
+    const prevCount = usePrevious(count)
+
+    return (
+        <div>
+            <h1>
+                Now: {count}, before: {prevCount}
+            </h1>
+            <button onClick={() => setCount(count + 1)}>Increment</button>
+        </div>
     )
 }
 ```
@@ -233,6 +273,35 @@ export default function Component() {
 }
 ```
 
+## useTheme
+
+This hook makes it easy to dynamically change the appearance of your app using CSS variables.
+
+```js
+import { useTheme } from "https://alexssh.github.io/react-hooks/release/latest/index.js"
+
+const theme = {
+  "button-padding": "16px",
+  "button-font-size": "14px",
+  "button-border-radius": "4px",
+  "button-border": "none",
+  "button-color": "#FFF",
+  "button-background": "#6772e5",
+  "button-hover-border": "none",
+  "button-hover-color": "#FFF",
+};
+
+export default function Component() {
+    useTheme(theme)
+
+    return (
+        <div>
+            <button className="button">Button</button>
+        </div>
+   )
+}
+```
+
 ## useToggle
 
 It takes a parameter with value true or false and toggles that value to opposite.
@@ -248,6 +317,21 @@ export default function Component() {
             {isTextChanged ? 'Toggled' : 'Click to Toggle'}
         </button>
    )
+}
+```
+
+## useWhyDidYouUpdate
+
+This hook makes it easy to see which prop changes are causing a component to re-render.
+
+```js
+import { useWhyDidYouUpdate } from "https://alexssh.github.io/react-hooks/release/latest/index.js"
+
+export default function Component() {
+
+    useWhyDidYouUpdate("Component", props);
+
+    return <div style={props.style}>{props.count}</div>
 }
 ```
 

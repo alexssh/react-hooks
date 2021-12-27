@@ -1,0 +1,5 @@
+# https://docs.netlify.com/routing/_headers
+
+/index.js
+    content-type: application/javascript; charset=UTF-8
+    access-Control-Allow-Origin: *
