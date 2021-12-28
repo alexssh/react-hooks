@@ -1,4 +1,6 @@
+export { useAsync } from "./hooks/useAsync"
 export { useDebounce } from "./hooks/useDebounce"
+export { useDeviceDetect } from "./hooks/useDeviceDetect"
 export { useElementSize } from "./hooks/useElementSize"
 export { useEventListener } from "./hooks/useEventListener"
 export { useFetch } from "./hooks/useFetch"

@@ -1,6 +1,8 @@
 # react-hooks
 
-A set of useful hooks for prototyping.
+A set of useful hooks for prototyping and development collected from all over the Internet.
+
+The hooks are ready to use in [Framer](https://framer.com/projects/Examples-react-hooks--8hFHiJFebfB0pRBQ1ZYI-dDW4e).
 
 ```js
 // Getting started
@@ -13,7 +15,42 @@ import {
 } from "https://alexssh.github.io/react-hooks/release/latest/index.js"
 ```
 
-The hooks are ready to use in [Framer](https://framer.com/projects/Examples-react-hooks--8hFHiJFebfB0pRBQ1ZYI-dDW4e).
+## useAsync
+
+This hook helps to indicate the status of any async request. The hooks takes an async function as the first parameter and boolean as the second one to to determine runtime immediately after rendering a component. The hook returns the value, error, and status values. Possible values for status prop are: `idle`, `pending`, `success`, `error`.
+
+```js
+import { useAsync } from "https://alexssh.github.io/react-hooks/release/latest/index.js"
+
+export default function Component() {
+    const { execute, status, value, error } = useAsync(myFunction, false)
+
+    return (
+        <div>
+            {status === "idle" && <div>Start your journey by clicking a button</div>}
+            {status === "success" && <div>{value}</div>}
+            {status === "error" && <div>{error}</div>}
+            <button onClick={execute} disabled={status === "pending"}>
+                {status !== "pending" ? "Click me" : "Loading..."}
+            </button>
+        </div>
+    )
+}
+
+// An async function for testing our hook.
+// Will be successful 50% of the time.
+const myFunction = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const rnd = Math.random() * 10
+            rnd <= 5
+            ? resolve("Submitted successfully 🙌")
+            : reject("Oh no there was an error 😞")
+        }, 2000)
+    })
+}
+
+```
 
 ## useDebounce
 
@@ -31,6 +68,30 @@ export default function Component() {
         <button onClick={() => { setValue(value + 1) }}>
             {`Value is ${value}. Debounced value is ${debouncedValue}.`}
         </button>
+    )
+}
+```
+
+## useDeviceDetect
+
+React hook to detect the device type. This hook is able to detect mobile, desktop, android, iOS device and the type of rendering.
+
+
+```js
+import { useDeviceDetect } from "https://alexssh.github.io/react-hooks/release/latest/index.js"
+
+export default function Component() {
+
+    const detectMobile = useDeviceDetect()
+
+    return (
+        <div>
+            <div>{`isAndroid`: ${detectMobile.isAndroid}}</div>
+            <div>{`isIos`: ${detectMobile.isIos}}</div>
+            <div>{`isMobile`: ${detectMobile.isMobile}}</div>
+            <div>{`isDesktop`: ${detectMobile.isDesktop}}</div>
+            <div>{`isSSR`: ${detectMobile.isSSR}}</div>
+        </div>
     )
 }
 ```
@@ -129,7 +190,7 @@ This hook makes it easy to detect when the user is pressing a specific key on th
 import { useKeyPress } from "https://alexssh.github.io/react-hooks/release/latest/index.js"
 
 export default function Component() {
-    const happyPress = useKeyPress("h");
+    const happyPress = useKeyPress("h")
 
     return (
         <div>
@@ -141,7 +202,7 @@ export default function Component() {
 
 ## useLocalStorage
 
-Persist the state with local storage so that it remains after a page refresh. This hook is used in the same way as useState except that you must pass the storage key in the 1st parameter. If the window object is not present, useLocalStorage() will return the default value.
+Persist the state with local storage so that it remains after a page refresh. This hook is used in the same way as useState except that you must pass the storage key in the 1st parameter. If the window object is not present, `useLocalStorage()` will return the default value.
 
 ```js
 import { useLocalStorage } from "https://alexssh.github.io/react-hooks/release/latest/index.js"
@@ -163,7 +224,7 @@ export default function Component() {
 
 ## usePrevious
 
-It uses the useRef hook internally for storing the previous value.
+It uses the `useRef` hook internally for storing the previous value.
 
 ```js
 import { usePrevious } from "https://alexssh.github.io/react-hooks/release/latest/index.js"
@@ -185,7 +246,7 @@ export default function Component() {
 
 ## useReadLocalStorage
 
-This hook allows you to read a value from localStorage by its key. It can be useful if you just want to read without passing a default value. If the window object is not present, or if the value doesn't exist, useLocalStorage() will return null.
+This hook allows you to read a value from `localStorage` by its key. It can be useful if you just want to read without passing a default value. If the window object is not present, or if the value doesn't exist, `useLocalStorage()` will return null.
 
 ```js
 import { useReadLocalStorage } from "https://alexssh.github.io/react-hooks/release/latest/index.js"
@@ -222,7 +283,7 @@ export default function Component() {
 
 ## useScript
 
-The hook helps to add an external script to the page. It takes a script's link as a parameter and returns the status of the script (idle, loading, ready, error). Updated when the link changes.
+The hook helps to add an external script to the page. It takes a script's link as a parameter and returns the status of the script (`idle`, `loading`, `ready`, `error`). Updated when the link changes.
 
 ```js
 import { useScript } from "https://alexssh.github.io/react-hooks/release/latest/index.js"
@@ -252,7 +313,7 @@ export default function Component() {
 
 ## useStyles
 
-The hook helps to add an external script to the page. It takes two parameters an id and inline css code. It returns the status of the script (idle, loading, ready, error). Updated when the inline style changes.
+The hook helps to add an external script to the page. It takes two parameters an id and inline css code. It returns the status of the script (`idle`, `loading`, `ready`, `error`). Updated when the inline style changes.
 
 ```js
 import { useScript } from "https://alexssh.github.io/react-hooks/release/latest/index.js"
@@ -289,7 +350,7 @@ const theme = {
   "button-background": "#6772e5",
   "button-hover-border": "none",
   "button-hover-color": "#FFF",
-};
+}
 
 export default function Component() {
     useTheme(theme)
@@ -328,8 +389,7 @@ This hook makes it easy to see which prop changes are causing a component to re-
 import { useWhyDidYouUpdate } from "https://alexssh.github.io/react-hooks/release/latest/index.js"
 
 export default function Component() {
-
-    useWhyDidYouUpdate("Component", props);
+    useWhyDidYouUpdate("Component", props)
 
     return <div style={props.style}>{props.count}</div>
 }
@@ -337,7 +397,7 @@ export default function Component() {
 
 ## useWindowSize
 
-It returns a window dimension, also works onRezise.
+It returns a window dimension, also works `onRezise`.
 
 ```js
 import { useScreen } from "https://alexssh.github.io/react-hooks/release/latest/index.js"
