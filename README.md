@@ -4,7 +4,7 @@ A set of useful hooks for prototyping and development collected from all over th
 
 ### Getting started in Framer
 
-The hooks are ready to use in [Framer](https://framer.com/projects/Examples-react-hooks--8hFHiJFebfB0pRBQ1ZYI-dDW4e).
+The hooks are ready to use in [Framer](https://www.framer.com/showcase/project/8hFHiJFebfB0pRBQ1ZYI/).
 
 
 ```js
@@ -215,6 +215,26 @@ export default function Component() {
             {loading && ("Loading...")}
             {position && `Your location: ${position.coords.latitude} lat, ${position.coords.longitude} lng`}
         </div>
+    )
+}
+```
+
+## useInterval
+
+Use setInterval in functional React component with the same API. Set your callback function as a first parameter and a delay (in milliseconds) for the second argument. You can also stop the timer passing null instead the delay.
+
+```js
+import { useInterval } from "https://alexssh.github.io/react-hooks/release/latest/index.js"
+
+export default function Component() {
+    const [count, setCount] = useState(0)
+
+    useInterval(() => {
+        setCount(count + 1)
+    }, 1000)
+
+    return (
+        return <div>{`It counts every 1s: ${count}`}</div>
     )
 }
 ```
