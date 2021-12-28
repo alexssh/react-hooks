@@ -279,6 +279,34 @@ export default function Component() {
 }
 ```
 
+## useOnClickOutside
+
+React hook for listening for clicks outside of a specified element.
+
+```js
+import { useOnClickOutside } from "https://alexssh.github.io/react-hooks/release/latest/index.js"
+
+export default function Component() {
+    const elementRef = useRef(null)
+
+    const handleClickOutside = () => {
+        // Your custom logic here
+        console.log('Clicked outside')
+    }
+
+    const handleClickInside = () => {
+        // Your custom logic here
+        console.log('Clicked inside')
+    }
+
+    useOnClickOutside(elementRef, handleClickOutside)
+
+    return (
+        <button ref={elementRef} onClick={handleClickInside}>Click on me!</button>
+    )
+}
+```
+
 ## usePrevious
 
 It uses the `useRef` hook internally for storing the previous value.

@@ -1,6 +1,6 @@
 {
   "name": "react-hooks-framer",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "A set of useful hooks for prototyping and development collected from all over the Internet.",
   "main": "release/latest/index.js",
   "devDependencies": {

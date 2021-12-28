@@ -8,3 +8,5 @@ export type Action<T> = | { type: 'loading' } | { type: 'fetched'; payload: T } 
 export type SetValue<T> = Dispatch<SetStateAction<T>>
 
 export type Value<T> = T | null
+
+export type Handler = (event: MouseEvent) => void
