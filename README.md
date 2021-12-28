@@ -2,17 +2,34 @@
 
 A set of useful hooks for prototyping and development collected from all over the Internet.
 
+### Getting started in Framer
+
 The hooks are ready to use in [Framer](https://framer.com/projects/Examples-react-hooks--8hFHiJFebfB0pRBQ1ZYI-dDW4e).
 
-```js
-// Getting started
 
+```js
 import {
     useElementSize,
     useEventListener,
     useScript,
     useStyles
 } from "https://alexssh.github.io/react-hooks/release/latest/index.js"
+```
+
+
+### Getting started in your react project
+
+Install [the package](https://www.npmjs.com/package/react-hooks-pack): `npm i react-hooks-framer`
+
+```js
+// Getting started in your react project
+
+import {
+    useElementSize,
+    useEventListener,
+    useScript,
+    useStyles
+} from "react-hooks-framer"
 ```
 
 ## useAsync
