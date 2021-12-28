@@ -1,4 +1,4 @@
-# react-hooks
+# react-hooks-framer
 
 A set of useful hooks for prototyping and development collected from all over the Internet.
 

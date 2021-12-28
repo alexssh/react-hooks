@@ -105,3 +105,4 @@ dist
 
 # System
 .DS_Store
+.todo
