@@ -199,6 +199,26 @@ export default function Component() {
 }
 ```
 
+## useGeolocation
+
+This hook makes it easy to detect the user's location. It takes two parameters: [options](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition) and watch (infinite position tracking).
+
+```js
+import { useGeolocation } from "https://alexssh.github.io/react-hooks/release/latest/index.js"
+
+export default function Component() {
+    const happyPress = useGeolocation({ enableHightAccuracy: true }, false)
+
+    return (
+        <div>
+            {error && ("Something went wrong")}
+            {loading && ("Loading...")}
+            {position && `Your location: ${position.coords.latitude} lat, ${position.coords.longitude} lng`}
+        </div>
+    )
+}
+```
+
 ## useKeyPress
 
 This hook makes it easy to detect when the user is pressing a specific key on their keyboard.

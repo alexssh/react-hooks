@@ -1,6 +1,6 @@
 {
   "name": "react-hooks-framer",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "A set of useful hooks for prototyping and development collected from all over the Internet.",
   "main": "release/latest/index.js",
   "devDependencies": {
@@ -13,7 +13,7 @@
     "server": "node esmbuild server ./src 8000",
     "build": "node esmbuild build ./src dist; cp src/_headers dist",
     "build-latest": "rm -R release/latest; cp -Rf dist release/latest",
-    "build-release": "rm -R release/$npm_package_name@$npm_package_version; cp -Rf dist release/$npm_package_name@$npm_package_version",
+    "build-release": "rm -R release/react-hooks@$npm_package_version; cp -Rf dist release/react-hooks@$npm_package_version",
     "release": "npm run build; mkdir -p release; npm run build-latest; npm run build-release"
   },
   "keywords": [
