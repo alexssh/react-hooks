@@ -2,24 +2,9 @@
 
 A set of useful hooks for prototyping and development collected from all over the Internet.
 
-### Getting started in Framer
-
-The hooks are ready to use in [Framer](https://www.framer.com/showcase/project/8hFHiJFebfB0pRBQ1ZYI/).
-
-
-```js
-import {
-    useElementSize,
-    useEventListener,
-    useScript,
-    useStyles
-} from "https://alexssh.github.io/react-hooks/release/latest/index.js"
-```
-
-
 ### Getting started in your react project
 
-Install [the package](https://www.npmjs.com/package/react-hooks-pack): `npm i react-hooks-framer`
+Install [the package](https://www.npmjs.com/package/react-hooks-pack): `npm i react-hooks-framer`. These hooks are ready to use in [Framer](https://www.framer.com/showcase/project/8hFHiJFebfB0pRBQ1ZYI/) / [Instant NPM](https://www.framer.com/sites/npm/).
 
 ```js
 // Getting started in your react project
@@ -32,12 +17,38 @@ import {
 } from "react-hooks-framer"
 ```
 
+---
+
+- [useAsync](https://github.com/alexssh/react-hooks#useasync)
+- [useDebounce](https://github.com/alexssh/react-hooks#usedebounce)
+- [useDeviceDetect](https://github.com/alexssh/react-hooks#usedevicedetect)
+- [useElementSize](https://github.com/alexssh/react-hooks#useelementsize)
+- [useEventListener](https://github.com/alexssh/react-hooks#useeventlistener)
+- [useFetch](https://github.com/alexssh/react-hooks#usefetch)
+- [useFirstMount](https://github.com/alexssh/react-hooks#usefirstmount)
+- [useGeolocation](https://github.com/alexssh/react-hooks#usegeolocation)
+- [useInterval](https://github.com/alexssh/react-hooks#useinterval)
+- [useKeyPress](https://github.com/alexssh/react-hooks#usekeypress)
+- [useLocalStorage](https://github.com/alexssh/react-hooks#uselocalstorage)
+- [useOnClickOutside](https://github.com/alexssh/react-hooks#useonclickoutside)
+- [useOnScreen](https://github.com/alexssh/react-hooks#useonscreen)
+- [usePrevious](https://github.com/alexssh/react-hooks#useprevious)
+- [useReadLocalStorage](https://github.com/alexssh/react-hooks#usereadlocalstorage)
+- [useScreen](https://github.com/alexssh/react-hooks#usescreen)
+- [useScript](https://github.com/alexssh/react-hooks#usescript)
+- [useStyles](https://github.com/alexssh/react-hooks#usestyles)
+- [useTheme](https://github.com/alexssh/react-hooks#usetheme)
+- [useToggle](https://github.com/alexssh/react-hooks#usetoggle)
+- [useWhyDidYouUpdate](https://github.com/alexssh/react-hooks#usewhydidyouupdate)
+- [useWindowSize](https://github.com/alexssh/react-hooks#usewindowsize)
+
+
 ## useAsync
 
-This hook helps to indicate the status of any async request. The hooks takes an async function as the first parameter and boolean as the second one to to determine runtime immediately after rendering a component. The hook returns the value, error, and status values. Possible values for status prop are: `idle`, `pending`, `success`, `error`.
+This hook helps to indicate the status of any async request. The hooks takes an async function as the first parameter and boolean as the second one to determine runtime immediately after rendering a component. The hook returns the value, error, and status value. Possible values for status property are: `idle`, `pending`, `success`, `error`.
 
 ```js
-import { useAsync } from "https://alexssh.github.io/react-hooks/release/latest/index.js"
+import { useAsync } from "react-hooks-framer"
 
 export default function Component() {
     const { execute, status, value, error } = useAsync(myFunction, false)
@@ -71,11 +82,11 @@ const myFunction = () => {
 
 ## useDebounce
 
-This hook helps to limit that the component is re-rendered too many times. It uses two parameters: value and debounce time (ms).
+This hook helps to limit re-rendering of a component too many times. It uses two parameters: value and debounce time (ms).
 
 
 ```js
-import { useDebounce } from "https://alexssh.github.io/react-hooks/release/latest/index.js"
+import { useDebounce } from "react-hooks-framer"
 
 export default function Component() {
     const [value, setValue] = useState(0)
@@ -91,11 +102,11 @@ export default function Component() {
 
 ## useDeviceDetect
 
-React hook to detect the device type. This hook is able to detect mobile, desktop, android, iOS device and the type of rendering.
+This hook helps to detect a platform, system and rendering type.
 
 
 ```js
-import { useDeviceDetect } from "https://alexssh.github.io/react-hooks/release/latest/index.js"
+import { useDeviceDetect } from "react-hooks-framer"
 
 export default function Component() {
 
@@ -118,23 +129,25 @@ export default function Component() {
 This hook helps you to dynamically get the width and the height of an HTML element. Dimensions are updated on load, on mount/un-mount, when resizing the window and when the ref changes.
 
 ```js
-import { useElementSize } from "https://alexssh.github.io/react-hooks/release/latest/index.js"
+import { useElementSize } from "react-hooks-framer"
 
 export default function Component() {
     const [elementRef, { width, height }] = useElementSize()
 
     return (
-        <div ref={elementRef}>{`The element width is ${width}px and height ${height}px`}</div>
+        <div ref={elementRef}>
+            {`The element width is ${width}px and height ${height}px`}
+        </div>
     )
 }
 ```
 
 ## useEventListener
 
-It takes as parameters a eventName, a call-back functions (handler) and optionally a reference element. You can see above two examples using useRef and window based event.
+This hook helps to add any event listeners to your components. This hook does all the associated actions: checking if addEventListener is supported, adding the event listener, and removal it on cleanup. It takes as parameters a eventName, a call-back functions (handler) and optionally a reference element.
 
 ```js
-import { useEventListener } from "https://alexssh.github.io/react-hooks/release/latest/index.js"
+import { useEventListener } from "react-hooks-framer"
 
 export default function Component() {
     const elementRef = useRef(null)
@@ -164,7 +177,7 @@ export default function Component() {
 The hook aims to retrieve data on an API using the native Fetch API. It takes an url as first parameter and [an options object](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#supplying_request_options) as second one.
 
 ```js
-import { useFetch } from "https://alexssh.github.io/react-hooks/release/latest/index.js"
+import { useFetch } from "react-hooks-framer"
 
 export default function Component() {
 
@@ -199,12 +212,31 @@ export default function Component() {
 }
 ```
 
+## useFirstMount
+
+This hook allows you to determine if the render of the component in which it is called is the first one, or new renders have already occurred. Basically, it can be useful for executing code once in a component, regardless of its further renders.
+
+```js
+import { useFirstMount } from "react-hooks-framer"
+
+export default function Component() {
+    const { isFirstMount } = useFirstMount()
+
+    return (
+        <div>
+            {isFirstMount && ("First mount!")}
+            {!isFirstMount && ("The component has been mounted again!")}
+        </div>
+    )
+}
+```
+
 ## useGeolocation
 
 This hook makes it easy to detect the user's location. It takes two parameters: [options](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition) and watch (infinite position tracking).
 
 ```js
-import { useGeolocation } from "https://alexssh.github.io/react-hooks/release/latest/index.js"
+import { useGeolocation } from "react-hooks-framer"
 
 export default function Component() {
     const happyPress = useGeolocation({ enableHightAccuracy: true }, false)
@@ -221,10 +253,10 @@ export default function Component() {
 
 ## useInterval
 
-Use setInterval in functional React component with the same API. Set your callback function as a first parameter and a delay (in milliseconds) for the second argument. You can also stop the timer passing null instead the delay.
+This hook helps to use `setInterval` in functional React component with the same API. Set your callback function as a first parameter and a delay (in milliseconds) for the second argument. You can also stop the timer passing null instead the delay.
 
 ```js
-import { useInterval } from "https://alexssh.github.io/react-hooks/release/latest/index.js"
+import { useInterval } from "react-hooks-framer"
 
 export default function Component() {
     const [count, setCount] = useState(0)
@@ -241,10 +273,10 @@ export default function Component() {
 
 ## useKeyPress
 
-This hook makes it easy to detect when the user is pressing a specific key on their keyboard.
+This hook makes it easy to detect when a user is pressing a specific key on their keyboard.
 
 ```js
-import { useKeyPress } from "https://alexssh.github.io/react-hooks/release/latest/index.js"
+import { useKeyPress } from "react-hooks-framer"
 
 export default function Component() {
     const happyPress = useKeyPress("h")
@@ -259,10 +291,10 @@ export default function Component() {
 
 ## useLocalStorage
 
-Persist the state with local storage so that it remains after a page refresh. This hook is used in the same way as useState except that you must pass the storage key in the 1st parameter. If the window object is not present, `useLocalStorage()` will return the default value.
+This hooks helps to persist a state with the local storage so that it remains after a page refresh. This hook is used in the same way as useState except that you must pass the storage key in the 1st parameter. If the window object is not present, `useLocalStorage()` will return the default value.
 
 ```js
-import { useLocalStorage } from "https://alexssh.github.io/react-hooks/release/latest/index.js"
+import { useLocalStorage } from "react-hooks-framer"
 
 export default function Component() {
     const [someProperty, setSomeProperty] = useLocalStorage('someProperty', true)
@@ -281,10 +313,10 @@ export default function Component() {
 
 ## useOnClickOutside
 
-React hook for listening for clicks outside of a specified element.
+This hook helps to listen any clicks outside of a specified element.
 
 ```js
-import { useOnClickOutside } from "https://alexssh.github.io/react-hooks/release/latest/index.js"
+import { useOnClickOutside } from "react-hooks-framer"
 
 export default function Component() {
     const elementRef = useRef(null)
@@ -307,12 +339,42 @@ export default function Component() {
 }
 ```
 
-## usePrevious
+## useOnScreen
 
-It uses the `useRef` hook internally for storing the previous value.
+This hook allows you to easily detect when an element is visible on the screen as well as specify how much of the element should be visible before being considered on screen. It takes a reference, an offset value, and a threshold value as parameters.
 
 ```js
-import { usePrevious } from "https://alexssh.github.io/react-hooks/release/latest/index.js"
+import { useOnScreen } from "react-hooks-framer"
+
+export default function Component() {
+    const ref = useRef()
+    const onScreen = useOnScreen(ref, "-300px", 0);
+
+    return (
+        <div>
+            <div style={{ height: "100vh" }}>
+                <h1>Scroll down to next section 👇</h1>
+            </div>
+            <div
+                ref={ref}
+                style={{
+                    height: "100vh",
+                    backgroundColor: onScreen ? "#23cebd" : "#efefef"
+                }}
+            >
+                {onScreen ? (<h1>Hey I am on the screen</h1>) : <h1>Scroll down 👇</h1>}
+            </div>
+        </div>
+    )
+}
+```
+
+## usePrevious
+
+This hook helps storing the previous value.
+
+```js
+import { usePrevious } from "react-hooks-framer"
 
 export default function Component() {
     const [count, setCount] = useState(0)
@@ -334,7 +396,7 @@ export default function Component() {
 This hook allows you to read a value from `localStorage` by its key. It can be useful if you just want to read without passing a default value. If the window object is not present, or if the value doesn't exist, `useLocalStorage()` will return null.
 
 ```js
-import { useReadLocalStorage } from "https://alexssh.github.io/react-hooks/release/latest/index.js"
+import { useReadLocalStorage } from "react-hooks-framer"
 
 export default function Component() {
     const someProperty = useReadLocalStorage('someProperty')
@@ -346,12 +408,13 @@ export default function Component() {
     )
 }
 ```
+
 ## useScreen
 
-It retrieves `window.screen` object, also works onRezise.
+This hook helps to retrieve the `window.screen` object. Also, it works when `onRezise` is triggered.
 
 ```js
-import { useScreen } from "https://alexssh.github.io/react-hooks/release/latest/index.js"
+import { useScreen } from "react-hooks-framer"
 
 export default function Component() {
 
@@ -371,7 +434,7 @@ export default function Component() {
 The hook helps to add an external script to the page. It takes a script's link as a parameter and returns the status of the script (`idle`, `loading`, `ready`, `error`). Updated when the link changes.
 
 ```js
-import { useScript } from "https://alexssh.github.io/react-hooks/release/latest/index.js"
+import { useScript } from "react-hooks-framer"
 
 let token = "XXX"
 
@@ -398,10 +461,10 @@ export default function Component() {
 
 ## useStyles
 
-The hook helps to add an external script to the page. It takes two parameters an id and inline css code. It returns the status of the script (`idle`, `loading`, `ready`, `error`). Updated when the inline style changes.
+The hook helps to add styles to the page. It takes two parameters an id and inline css code. It returns the status of the script (`idle`, `loading`, `ready`, `error`). It will be updated when inline styles changes.
 
 ```js
-import { useScript } from "https://alexssh.github.io/react-hooks/release/latest/index.js"
+import { useScript } from "react-hooks-framer"
 
 export default function Component() {
 
@@ -414,35 +477,40 @@ export default function Component() {
         `
     )
     return (
-        <div className="element"/>
+        <div className="element">Hello world!</div>
     )
 }
 ```
 
 ## useTheme
 
-This hook makes it easy to dynamically change the appearance of your app using CSS variables.
+This hook makes it easy to dynamically change the appearance of your app using CSS variables. It gets and object of css variables as a parameter.
 
 ```js
-import { useTheme } from "https://alexssh.github.io/react-hooks/release/latest/index.js"
+import { useTheme } from "react-hooks-framer"
 
-const theme = {
-  "button-padding": "16px",
-  "button-font-size": "14px",
-  "button-border-radius": "4px",
-  "button-border": "none",
-  "button-color": "#FFF",
+const theme_light = {
   "button-background": "#6772e5",
-  "button-hover-border": "none",
-  "button-hover-color": "#FFF",
+}
+
+const theme_dark = {
+  "button-background": "#d1d4f1",
 }
 
 export default function Component() {
+
+    const [theme, setTheme] = useState("theme_light")
+
     useTheme(theme)
 
     return (
         <div>
-            <button className="button">Button</button>
+            <button
+                className="button"
+                onClick={() => setTheme("theme_light" ? "theme_dark" : "theme_light")}
+            >
+                Button
+            </button>
         </div>
    )
 }
@@ -450,17 +518,17 @@ export default function Component() {
 
 ## useToggle
 
-It takes a parameter with value true or false and toggles that value to opposite.
+This hooks helps to toggle a boolean value.
 
 ```js
-import { useToggle } from "https://alexssh.github.io/react-hooks/release/latest/index.js"
+import { useToggle } from "react-hooks-framer"
 
 export default function Component() {
-    const [isTextChanged, setIsTextChanged] = useToggle()
+    const [toggle, setToggle] = useToggle()
 
     return (
-        <button onClick={setIsTextChanged}>
-            {isTextChanged ? 'Toggled' : 'Click to Toggle'}
+        <button onClick={setToggle}>
+            {toggle ? 'True' : 'False'}
         </button>
    )
 }
@@ -471,7 +539,7 @@ export default function Component() {
 This hook makes it easy to see which prop changes are causing a component to re-render.
 
 ```js
-import { useWhyDidYouUpdate } from "https://alexssh.github.io/react-hooks/release/latest/index.js"
+import { useWhyDidYouUpdate } from "react-hooks-framer"
 
 export default function Component() {
     useWhyDidYouUpdate("Component", props)
@@ -482,13 +550,12 @@ export default function Component() {
 
 ## useWindowSize
 
-It returns a window dimension, also works `onRezise`.
+This hook returns a window's size. Also, it works when `onRezise` is triggered.
 
 ```js
-import { useScreen } from "https://alexssh.github.io/react-hooks/release/latest/index.js"
+import { useScreen } from "react-hooks-framer"
 
 export default function Component() {
-
     const { width, height } = useWindowSize()
 
     return (
