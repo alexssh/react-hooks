@@ -35,3 +35,5 @@ export const useGeolocation = (options?: PositionOptions, watch: boolean = false
 
     return { loading, error, position }
 }
+
+export default useGeolocation
