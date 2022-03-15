@@ -1,39 +1,36 @@
 {
-  "name": "react-hooks-framer",
-  "version": "0.8.0",
-  "description": "A set of useful hooks for prototyping and development collected from all over the Internet.",
-  "main": "release/latest/index.js",
-  "devDependencies": {
-    "esbuild": "^0.14.8",
-    "globby": "^12.0.2",
-    "react": "^17.0.2",
-    "typescript": "^4.5.4"
-  },
-  "scripts": {
-    "server": "node esmbuild server ./src 8000",
-    "build": "node esmbuild build ./src dist; cp src/_headers dist",
-    "build-latest": "rm -R release/latest; cp -Rf dist release/latest",
-    "build-release": "rm -R release/react-hooks@$npm_package_version; cp -Rf dist release/react-hooks@$npm_package_version",
-    "release": "npm run build; mkdir -p release; npm run build-latest; npm run build-release"
-  },
-  "keywords": [
-    "react",
-    "reactjs",
-    "hooks",
-    "react-hooks",
-    "utils",
-    "tools",
-    "framer"
-  ],
-  "type": "module",
-  "author": "alexssh",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/alexssh/react-hooks.git"
-  },
-  "bugs": {
-    "url": "https://github.com/alexssh/react-hooks/issues"
-  },
-  "homepage": "https://github.com/alexssh/react-hooks#readme"
+    "name": "react-hooks-framer",
+    "version": "1.0.0",
+    "description": "A set of useful hooks for prototyping and development collected from all over the Internet.",
+    "main": "dist/index.js",
+    "devDependencies": {
+        "esbuild": "^0.14.8",
+        "globby": "^12.0.2",
+        "react": "^17.0.2",
+        "typescript": "^4.5.4"
+    },
+    "scripts": {
+        "server": "node esmbuild server ./src 8000",
+        "build": "node esmbuild build ./src dist"
+    },
+    "keywords": [
+        "react",
+        "reactjs",
+        "hooks",
+        "react-hooks",
+        "utils",
+        "tools",
+        "framer"
+    ],
+    "type": "module",
+    "author": "alexssh",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/alexssh/react-hooks.git"
+    },
+    "bugs": {
+        "url": "https://github.com/alexssh/react-hooks/issues"
+    },
+    "homepage": "https://github.com/alexssh/react-hooks#readme"
 }
