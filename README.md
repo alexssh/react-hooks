@@ -45,7 +45,7 @@ import {
 
 ## useAsync
 
-This hook helps to indicate the status of any async request. The hooks takes an async function as the first parameter and boolean as the second one to determine runtime immediately after rendering a component. The hook returns the value, error, and status value. Possible values for status property are: `idle`, `pending`, `success`, `error`.
+This hook helps to indicate the status of any async request. The hooks takes an async function as the first parameter and a boolean value as the second one to determine runtime immediately after rendering a component. The hook returns the value, error, and status value. Possible values for status property are: `idle`, `pending`, `success`, `error`.
 
 ```js
 import { useAsync } from "react-hooks-framer"
@@ -126,7 +126,7 @@ export default function Component() {
 
 ## useElementSize
 
-This hook helps you to dynamically get the width and the height of an HTML element. Dimensions are updated on load, on mount/un-mount, when resizing the window and when the ref changes.
+This hook helps you to dynamically get width and height of an HTML element. Dimensions are updated on load, on mount/un-mount, when resizing the window and when the ref changes.
 
 ```js
 import { useElementSize } from "react-hooks-framer"
@@ -144,7 +144,7 @@ export default function Component() {
 
 ## useEventListener
 
-This hook helps to add any event listeners to your components. This hook does all the associated actions: checking if addEventListener is supported, adding the event listener, and removal it on cleanup. It takes as parameters a eventName, a call-back functions (handler) and optionally a reference element.
+This hook helps to add any event listeners to your components. This hook does all the associated actions: checking if addEventListener is supported, adding the event listener, and removal it on cleanup. It takes as parameters an event name, a call-back function (handler) and optionally an element reference.
 
 ```js
 import { useEventListener } from "react-hooks-framer"
@@ -157,7 +157,7 @@ export default function Component() {
     }
 
     const onClick = (event) => {
-      console.log('Vutton clicked!', event)
+      console.log('Button clicked!', event)
     }
 
     // Example with window based event
@@ -174,7 +174,7 @@ export default function Component() {
 
 ## useFetch
 
-The hook aims to retrieve data on an API using the native Fetch API. It takes an url as first parameter and [an options object](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#supplying_request_options) as second one.
+The hook aims to retrieve data on an API using the native Fetch API. It takes an API url as the first parameter and [an options object](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#supplying_request_options) as the second one.
 
 ```js
 import { useFetch } from "react-hooks-framer"
@@ -273,7 +273,7 @@ export default function Component() {
 
 ## useKeyPress
 
-This hook makes it easy to detect when a user is pressing a specific key on their keyboard.
+This hook makes it easy to detect when a user is pressing the specific key on their keyboard.
 
 ```js
 import { useKeyPress } from "react-hooks-framer"
@@ -291,7 +291,7 @@ export default function Component() {
 
 ## useLocalStorage
 
-This hooks helps to persist a state with the local storage so that it remains after a page refresh. This hook is used in the same way as useState except that you must pass the storage key in the 1st parameter. If the window object is not present, `useLocalStorage()` will return the default value.
+This hooks helps to persist the state with the local storage so that it remains after a page refresh. This hook is used in the same way as useState except that you must pass the storage key in the 1st parameter. If the window object is not present, `useLocalStorage()` will return the default value.
 
 ```js
 import { useLocalStorage } from "react-hooks-framer"
@@ -393,7 +393,7 @@ export default function Component() {
 
 ## useReadLocalStorage
 
-This hook allows you to read a value from `localStorage` by its key. It can be useful if you just want to read without passing a default value. If the window object is not present, or if the value doesn't exist, `useLocalStorage()` will return null.
+This hook allows you to read a value from `localStorage` by its key. It can be useful if you just want to read without passing the default value. If the window object is not present, or if the value doesn't exist, `useLocalStorage()` will return null.
 
 ```js
 import { useReadLocalStorage } from "react-hooks-framer"
@@ -484,7 +484,7 @@ export default function Component() {
 
 ## useTheme
 
-This hook makes it easy to dynamically change the appearance of your app using CSS variables. It gets and object of css variables as a parameter.
+This hook makes it easy to dynamically change the appearance of your app using CSS variables. It gets an object of css variables as a parameter.
 
 ```js
 import { useTheme } from "react-hooks-framer"
